@@ -1,5 +1,5 @@
 #----root/outputs.tf-----
 
-output "AWS Region" {
-  value = "${aws.aws_region}"
+output "S3 Hosted bucket name" {
+  value = "${module.S3hosting.tf_s3_hosted_bucket}"
 }
