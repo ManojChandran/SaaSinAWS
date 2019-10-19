@@ -14,5 +14,5 @@ module "S3hosting" {
 module "Cldfrntdistro" {
   source       = "./modules/03_Cldfrontdistro"
   domain_name  = "${var.domain_name}"
-  hosted_website_bucket_name  = "${module.mys3hosting.tf_s3_hosted_bucket}"
+  hosted_website_bucket_name  = "${module.Cldfrntdistro.tf_s3_hosted_bucket}"
 }
