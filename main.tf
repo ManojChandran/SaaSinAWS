@@ -16,3 +16,10 @@ module "Cldfrntdistro" {
   domain_name  = "${var.domain_name}"
   hosted_website_bucket_name  = "${module.S3hosting.tf_s3_hosted_bucket}"
 }
+
+# Deploy API gateway
+module "Apigateway" {
+  source       = "./modules/04_ApiGateway"
+  # need to replace api_rest_container_name with generic name built form project
+  api_rest_container_name = "${var.api_rest_container_name}"
+}

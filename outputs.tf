@@ -9,3 +9,9 @@ output "Cloudfront distrubution domain" {
 output "Cloudfront distrubution domain Status" {
   value = "${module.Cldfrntdistro.tf_Cld_dist_status}"
 }
+output "API gateway ID" {
+  value = "${module.Apigateway.tf_api_gateway_id}"
+}
+output "API gateway resource ID" {
+  value = "${module.Apigateway.tf_api_root_resource_id}"
+}
