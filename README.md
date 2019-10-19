@@ -33,10 +33,11 @@ Tenant onboarding is key part in the Multi tenant SAAS application. Static S3 ho
 
 ![Onboarding Approach](./images/Auth.png?raw=true "Title")
 
-Our solution modules:
+Our solution Terraform modules:
 * 01_Route53
 * 02_S3hosting
 * 03_Cldfrontdistro
+* 04_ApiGateway
 
 
 
@@ -55,3 +56,5 @@ Link 4 : https://gist.github.com/nagelflorian/67060ffaf0e8c6016fa1050b6a4e767a</
 Link 5 : https://d0.awsstatic.com/whitepapers/saas-solutions-on-aws-final.pdf</br>
 Link 6 : https://aws-quickstart.s3.amazonaws.com/saas-identity-cognito/doc/saas-identity-and-isolation-with-cognito-on-the-aws-cloud.pdf</br>
 Link 7 : https://www.youtube.com/watch?v=mwQ5lipGTBI&t=781s (Title: AWS re:Invent 2018: [REPEAT 1] Deconstructing SaaS: Deep Dive into Building Multi-Tenant Solutions on AWS (ARC418-R1)</br>
+Link 8 : https://github.com/terraform-community-modules/tf_aws_ecs/blob/master/main.tf</br>
+Link 9 : https://learn.hashicorp.com/terraform/aws/lambda-api-gateway</br>
