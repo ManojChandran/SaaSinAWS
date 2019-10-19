@@ -20,6 +20,6 @@ module "Cldfrntdistro" {
 # Deploy API gateway
 module "Apigateway" {
   source       = "./modules/04_ApiGateway"
-  # need to replace api_rest_container_name with generic name built form project
-  api_rest_container_name = "${var.api_rest_container_name}"
+  # need to replace api_rest_container_name with generic name built form project.
+  api_rest_container_name = "${var.website_bucket_name}-rest-api"
 }
