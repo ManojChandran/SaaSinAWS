@@ -2,6 +2,8 @@
 
 Every other day a new start-up is in market with a software service,  Most of these offer Software as a service. Industry has changed much after cloud, Enterprise started relying on these SAAS providers more. With this git repository we are going to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as software as code and use Terraform to do it.
 
+* Terraform vesrion : 0.11.13
+
 # GOAL
 
 Goal is to implement a SAAS infrastructure in AWS using Terraform. Design follows the guidelines presented by Tod Golding ins AWS reinvent 2018 (ARC418-R1 references are provided at the end of this document.)
