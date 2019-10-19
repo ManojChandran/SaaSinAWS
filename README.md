@@ -1,6 +1,6 @@
 # Overview
 
-Every other day a new start-up is in market with a software service,  Most of these offer Software as a service. Industry has changed much after cloud, Enterprise started relying on these SAAS providers more. With this git repository we are going to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as software as code and use Terraform to do it.
+Every other day a new start-up is in market with a software service,  Most of these offer Software as a Service. Industry has changed much after cloud and Enterprise started relying on these SAAS providers more. With this git repository we are going to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as infrastructure as code, using Terraform.
 
 * Terraform vesrion : 0.11.13
 
@@ -29,7 +29,7 @@ Key steps and consideration in designing are:
 * Deployment & agility
 
 ### Tenant onboarding
-Tenant onboarding is key part in the Multi tenant SAAS application. Static S3 hosting online onboarding and cloudfront for distribution. SAAS will be provided as API's and Cognito will be used for user authentication. Find the reference design from AWS is as given below.
+Tenant onboarding is key part in the Multi tenant SAAS application. Static S3 hosting online onboarding and cloudfront for distribution. SAAS will be provided as API's and Cognito will be used for user authentication. Find the reference design from AWS below.
 
 ![Onboarding Approach](./images/Auth.png?raw=true "Title")
 
