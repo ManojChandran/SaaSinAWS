@@ -26,7 +26,15 @@ Key steps and consideration in designing are:
 * Billing
 * Deployment & agility
 
+### Tenant onboarding
+Tenant onboarding is key part in the Multi tenant SAAS application. Static S3 hosting online onboarding and cloudfront for distribution. SAAS will be provided as API's and Cognito will be used for user authentication. Find the reference design from AWS is as given below.
 
+![Onboarding Approach](./images/Auth.png?raw=true "Title")
+
+Our solution modules:
+* 01_Route53
+* 02_S3hosting
+* 03_Cldfrontdistro
 
 
 
