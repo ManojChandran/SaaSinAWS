@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "tf_flowlogs_bucket" {
 
 resource "aws_flow_log" "vpc_flow_log" {
     iam_role_arn         = "${aws_iam_role.flowlogs_role.arn}"
-    log_destination      = "${aws_s3_bucket.tf_flowlogs_bucket.arn}"
+    log_destination      = "${aws_s3_bucket.tf_flowlogs_bucket.bucket.arn}"
     log_destination_type = "s3"
     traffic_type         = "ALL"
     vpc_id               = "${var.vpc_id}"
