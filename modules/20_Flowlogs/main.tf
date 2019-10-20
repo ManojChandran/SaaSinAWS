@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "tf_flowlogs_bucket" {
   acl = "public-read"
 
   tags {
-    Name = "tf_s3hosting_bucket"
+    Name = "tf_flowlogs_bucket"
   }
 }
 
