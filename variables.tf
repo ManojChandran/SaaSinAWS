@@ -2,7 +2,6 @@
 
 variable "aws_region" {}
 
-vpc_cidr  = "10.23.0.0/16"
 variable "tenantTier" {
   description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
 }
