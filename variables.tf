@@ -34,3 +34,7 @@ variable "vpc_private_subnet_count" {}
 variable "vpc_private_cidrs" {
   type = "list"
 }
+variable "vpc_rds_subnet_count" {}
+variable "vpc_rds_cidrs" {
+  type = "list"
+}
