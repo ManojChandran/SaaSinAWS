@@ -1,25 +1,19 @@
 #----20_Flowlogs/main.tf----
 
-resource "aws_s3_bucket" "tf_flowlogs_bucket" {
-  bucket = "${var.flowlogs_bucket_name}"
-  acl = "public-read"
-
-  tags {
-    Name = "tf_flowlogs_bucket"
-  }
+resource "aws_flow_log" "tf_vpc_flowlogs" {
+  iam_role_arn    = "${aws_iam_role.tf_IAM_flowlogs.arn}"
+  log_destination = "${aws_cloudwatch_log_group.tf_cloudwatch.arn}"
+  traffic_type    = "ALL"
+  vpc_id          = "${var.vpc_id}"
 }
 
-resource "aws_flow_log" "vpc_flow_log" {
-    iam_role_arn         = "${aws_iam_role.flowlogs_role.arn}"
-    log_destination      = "${aws_s3_bucket.tf_flowlogs_bucket.bucket.arn}"
-    log_destination_type = "s3"
-    traffic_type         = "ALL"
-    vpc_id               = "${var.vpc_id}"
-
+resource "aws_cloudwatch_log_group" "tf_cloudwatch" {
+  name = "tf_cloudwatch"
 }
 
-resource "aws_iam_role" "flowlogs_role" {
-  name = "flowlogs_role"
+resource "aws_iam_role" "tf_IAM_flowlogs" {
+  name = "tf_IAM_flowlogs"
+
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -37,9 +31,9 @@ resource "aws_iam_role" "flowlogs_role" {
 EOF
 }
 
-resource "aws_iam_role_policy" "flowlogs_role" {
-  name = "flowlogs_role"
-  role = "${aws_iam_role.flowlogs_role.id}"
+resource "aws_iam_role_policy" "tf_iam_role_policy" {
+  name = "tf_iam_role_policy"
+  role = "${aws_iam_role.tf_IAM_flowlogs.id}"
 
   policy = <<EOF
 {
