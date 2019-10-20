@@ -91,8 +91,7 @@ variable "tenantTier" {
   description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
 }
 ```
-note : This is a rough outline of solution, we are going to follow AWS proposed Mutli-tenant solutions.
-I will be adding more resources and it will be a continuous improvements towards a good solution.
+> This is a rough outline of solution, we are going to follow AWS proposed Mutli-tenant solutions.I will be adding more resources and it will be a continuous improvements towards a good solution.
 
 # Deliverables
 
