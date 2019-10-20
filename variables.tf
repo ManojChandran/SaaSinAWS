@@ -1,7 +1,6 @@
 #----root/variables.tf-----
 
 variable "aws_region" {}
-project_name = "mySaaSinAWS-terraform"
 
 vpc_cidr  = "10.23.0.0/16"
 variable "tenantTier" {
