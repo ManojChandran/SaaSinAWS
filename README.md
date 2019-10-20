@@ -102,7 +102,7 @@ I will be adding more resources and it will be a continuous improvements towards
 
 ### Configuration management
 
-Link for cloning the solution (https://github.com/ManojChandran/mySaaSinAWS.git)
+Github Link for solution (https://github.com/ManojChandran/mySaaSinAWS.git)
 
 # Project Reference
 
