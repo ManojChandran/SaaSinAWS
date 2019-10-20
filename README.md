@@ -38,9 +38,38 @@ Our solution Terraform modules:
 * 02_S3hosting
 * 03_Cldfrontdistro
 * 04_ApiGateway
+* 05_Cognito
+* 06_IAM
 
+### Tenant Isolation
 
+Second step in the process is Tenant isolation, there are several levels of isolation methods. AWS has guidelines on attaining Tenant isolation and they have formulated it in below categories.
 
+* Model #1 – Tenant Isolation at the AWS Account Layer
+* Model #2 – Tenant Isolation at the Amazon VPC Layer
+* Model #3 – Tenant Isolation at Amazon VPC Subnet Layer
+* Model #4 – Tenant Isolation at the Container Layer
+* Model #5 – Tenant Isolation at the Application Layer
+
+Our approach is to divide the tenants in to multiple tier and use a VPC layer Isolation.
+
+### Tenant Tier
+
+We assume current tenant fall in three categories as mentioned below.
+
+* Tenant1 - Open Source (Single Region, Multi AZ, No data isolation)
+* Tenant2 - Standrad Tier (Single region, Single AZ, Isolated database )
+* Tenant3 - Professional Tier (Single region, Multi AZ, Isolated Multi AZ database)
+* Tenant4 - Premium Tier (Multi region)
+
+![Design](./images/TenantIsolation.png?raw=true "Title")</br>
+
+```
+#----root/variables.tf-----
+variable "tenantTier" {
+  description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
+}
+```
 
 
 
