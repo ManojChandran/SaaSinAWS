@@ -38,4 +38,6 @@ variable "vpc_rds_subnet_count" {}
 variable "vpc_rds_cidrs" {
   type = "list"
 }
-variable "flowlogs_bucket_name" {}
+variable "flowlogs_bucket_name" {
+  default = ""
+}
