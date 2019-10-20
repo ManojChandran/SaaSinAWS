@@ -23,7 +23,6 @@ output "VPC ID" {
 output "VPC IGW" {
   value = "${module.vpc_igw.igw_id}"
 }
-
 output "VPC Default Routetable" {
   value = "${module.vpc_igw.default_route_table_id}"
 }
