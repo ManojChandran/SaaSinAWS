@@ -34,7 +34,7 @@ module "PublicSubnet" {
   source       = "./modules/11_PublicSubnet"
   vpc_id       = "${module.vpc_igw.vpc_id}"
   vpc_igw_id   = "${module.vpc_igw.igw_id}"
-  vpc_route_table_id      = "${module.vpc_igw.default_route_table_id}"
+#  vpc_route_table_id      = "${module.vpc_igw.default_route_table_id}"
   vpc_public_subnet_count = "${var.vpc_public_subnet_count}"
   vpc_public_cidrs        = "${var.vpc_public_cidrs}"
 }
@@ -44,7 +44,7 @@ module "PrivateSubnet" {
   source       = "./modules/12_PrivateSubnet"
   vpc_id       = "${module.vpc_igw.vpc_id}"
 #  vpc_igw_id   = "${module.vpc_igw.igw_id}"
+  vpc_route_table_id       = "${module.vpc_igw.default_route_table_id}"
   vpc_private_subnet_count = "${var.vpc_private_subnet_count}"
-  vpc_route_table_id   = "${module.vpc_igw.route_table_id}"
-  vpc_private_cidrs    = "${var.vpc_private_cidrs}"
+  vpc_private_cidrs        = "${var.vpc_private_cidrs}"
 }
