@@ -58,7 +58,7 @@ module "RDSSubnet" {
 }
 
 # Deploy VPC flowlogs
-#module "Flowlogs" {
-#  source       = "./modules/20_Flowlogs"
-#  vpc_id       = "${module.vpc_igw.vpc_id}"
-#}
+module "Flowlogs" {
+  source       = "./modules/20_Flowlogs"
+  vpc_id       = "${module.vpc_igw.vpc_id}"
+}
