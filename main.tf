@@ -62,3 +62,8 @@ module "Flowlogs" {
   source       = "./modules/20_Flowlogs"
   vpc_id       = "${module.vpc_igw.vpc_id}"
 }
+# Deploy Security group
+module "SecurityGroup01" {
+  source       = "./modules/31_SecurityGroup1"
+  vpc_id       = "${module.vpc_igw.vpc_id}"
+}
