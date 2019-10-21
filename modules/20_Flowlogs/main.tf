@@ -7,9 +7,9 @@
 #  vpc_id          = "${var.vpc_id}"
 #}
 #
-#resource "aws_cloudwatch_log_group" "tf_cloudwatch" {
-#  name = "tf_cloudwatch"
-#}
+resource "aws_cloudwatch_log_group" "tf_cloudwatch" {
+  name = "tf_cloudwatch"
+}
 
 resource "aws_iam_role" "tf_IAM_flowlogs" {
   name = "tf_IAM_flowlogs"
