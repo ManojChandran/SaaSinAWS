@@ -1,8 +1,10 @@
 # Overview
 
-Every other day a new start-up is in market with a software service,  Most of these offer Software as a Service. Industry has changed much after cloud and Enterprise started relying on these SAAS providers more. With this git repository we are going to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as infrastructure as code, using Terraform.
+Every other day a new start-up is in market with a software service,  Most of these offer Software as a Service. Industry has changed much after cloud and Enterprise started relying on these SAAS providers more. This git repository is provide a base design to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as infrastructure as code, using Terraform.
 
 * Terraform vesrion : 0.11.13
+
+> This is a rough outline of solution, we are going to follow AWS proposed Mutli-tenant solutions.I will be adding more resources and it will be a continuous improvements towards a good solution.
 
 # GOAL
 
@@ -72,7 +74,7 @@ variable "tenantTier" {
 ```
 
 ### Metering, Metrics and Analysis
-
+need to work on, any suggestion /guideline /learning shared will be helpful
 ### Management & monitoring
 Management and monitoring is key, we start with implementing VPC flow logs.
 
@@ -80,9 +82,9 @@ Our solution Terraform modules:
 * 20_Flowlogs
 
 ### Billing
-
+need to work on, any suggestion /guideline /learning shared will be helpful
 ### Deployment & agility
-
+need to work on, any suggestion /guideline /learning shared will be helpful
 # Proposed solution
 All the components have been created individual Terraform Modules. Assuming Tenant category and applying mapping, we can control the resources creation and allocation.
 
@@ -91,7 +93,6 @@ variable "tenantTier" {
   description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
 }
 ```
-> This is a rough outline of solution, we are going to follow AWS proposed Mutli-tenant solutions.I will be adding more resources and it will be a continuous improvements towards a good solution.
 
 # Deliverables
 
