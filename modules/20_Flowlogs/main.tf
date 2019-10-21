@@ -1,7 +1,7 @@
 #----20_Flowlogs/main.tf----
 
 resource "aws_flow_log" "tf_vpc_flowlogs" {
-#  iam_role_arn    = "${aws_iam_role.tf_IAM_flowlogs.arn}"
+  iam_role_arn    = "${aws_iam_role.tf_IAM_flowlogs.arn}"
   log_destination = "${aws_cloudwatch_log_group.tf_cloudwatch.arn}"
   traffic_type    = "ALL"
   vpc_id          = "${var.vpc_id}"
