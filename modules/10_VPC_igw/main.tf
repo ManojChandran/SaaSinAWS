@@ -6,7 +6,7 @@ resource "aws_vpc" "tf_vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  tags {
+  tags = {
     Name = "tf_vpc"
   }
 }
@@ -15,7 +15,7 @@ resource "aws_vpc" "tf_vpc" {
 resource "aws_internet_gateway" "tf_internet_gateway" {
   vpc_id = "${aws_vpc.tf_vpc.id}"
 
-  tags {
+  tags = {
     Name = "tf_igw"
   }
 }
