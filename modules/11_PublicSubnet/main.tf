@@ -12,7 +12,7 @@ resource "aws_route_table" "tf_public_rt" {
     gateway_id = "${var.vpc_igw_id}"
   }
 
-  tags {
+  tags = {
     Name = "tf_public"
   }
 }
@@ -25,7 +25,7 @@ resource "aws_subnet" "tf_public_subnet" {
   map_public_ip_on_launch = true
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
-  tags {
+  tags = {
     Name = "tf_public_${count.index + 1}"
   }
 }

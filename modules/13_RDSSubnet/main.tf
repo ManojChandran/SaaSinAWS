@@ -11,7 +11,7 @@ resource "aws_subnet" "tf_RDS_subnet" {
   map_public_ip_on_launch = false
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
-  tags {
+  tags = {
     Name = "tf_RDS_${count.index + 1}"
   }
 }
@@ -21,7 +21,7 @@ resource "aws_db_subnet_group" "tf_rds_subnetgroup" {
     name = "tf_rds_subnetgroup"
 
     subnet_ids = ["${aws_subnet.tf_RDS_subnet.*.id}"]
-    tags {
+    tags = {
       Name = "tf_RDS_sng"
     }
 }

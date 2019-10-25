@@ -41,7 +41,7 @@ resource "aws_cloudfront_distribution" "tf_s3_distribution" {
     }
   }
 
-  tags {
+  tags = {
     Environment = "test"
   }
 

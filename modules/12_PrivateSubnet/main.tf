@@ -7,7 +7,7 @@ data "aws_availability_zones" "available" {}
 resource "aws_default_route_table" "tf_private_rt" {
   default_route_table_id  = "${var.vpc_route_table_id}"
 
-  tags {
+  tags = {
     Name = "tf_private"
   }
 }
@@ -20,7 +20,7 @@ resource "aws_subnet" "tf_private_subnet" {
   map_public_ip_on_launch = false
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
-  tags {
+  tags = {
     Name = "tf_private_tag_${count.index + 1}"
   }
 }
@@ -39,7 +39,7 @@ resource "aws_alb" "tf_ecs_load_balancer" {
 #    security_groups     = ["${aws_security_group.test_public_sg.id}"]
     subnets             = ["${aws_subnet.tf_private_subnet.*.id}"]
 
-    tags {
+    tags = {
       Name = "tf_ecs_load_balancer"
     }
 }
@@ -61,7 +61,7 @@ resource "aws_alb_target_group" "tf_ecs_target_group" {
         timeout             = "5"
     }
 
-    tags {
+    tags = {
       Name = "tf_ecs_target_group"
     }
 }
