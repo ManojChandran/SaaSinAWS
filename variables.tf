@@ -41,3 +41,7 @@ variable "vpc_rds_cidrs" {
 variable "flowlogs_bucket_name" {
   default = ""
 }
+
+variable "tf_ecs_cluster_name" {
+  default = ""
+}

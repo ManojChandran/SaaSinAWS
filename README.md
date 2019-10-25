@@ -19,9 +19,13 @@ Goal is to implement a SAAS infrastructure in AWS using Terraform. Design follow
 
 A method of software delivery and licensing in which software is accessed online via a subscription, rather than bought and installed on individual computers.
 
+### Functional Requirement for the Infra created
+
+![SAAS Requirements](./images/Architecting_requirement.png?raw=true "Title")
+
 Designing SAAS infrastructure means, we are going to create a multi-tenant architecture. Each tenant will have different privilege, access and data isolation.
 
-Key steps and consideration in designing are:
+Key steps in designing SAAS are:
 
 * Tenant on-boarding
 * Tenant Isolation
@@ -53,7 +57,9 @@ Second step in the process is Tenant isolation, there are several levels of isol
 * Model #4 – Tenant Isolation at the Container Layer
 * Model #5 – Tenant Isolation at the Application Layer
 
-Our approach is to divide the tenants in to multiple tier and use a VPC layer Isolation.
+Our approach is to divide the tenants in to multiple tier and use a Hybrid Isolation.
+
+![Design](./images/TenantIsolation.png?raw=true "Title")</br>
 
 ### Tenant Tier
 
@@ -64,17 +70,32 @@ We assume current tenant fall in three categories as mentioned below.
 * Tenant3 - Professional Tier (Single region, Multi AZ, Isolated Multi AZ database)
 * Tenant4 - Premium Tier (Multi region)
 
-![Design](./images/TenantIsolation.png?raw=true "Title")</br>
+All the components have been created individual Terraform Modules. Assuming Tenant category and applying mapping, we can control the resources creation and allocation.
 
-```
-#----root/variables.tf-----
+```hcl
+#----root/variables.tf----- Sample approach
 variable "tenantTier" {
   description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
 }
+
+....
+
+variable "vpc_public_subnet_count" {
+  type        = "map"
+  description = "Subnet count"
+  default     = {
+    Tenant1  = "2"
+    Tenant2  = "4"
+    Tenant3  = "6"
+    Tenant4  = "8"
+  }
+}
+
 ```
 
 ### Metering, Metrics and Analysis
 need to work on, any suggestion /guideline /learning shared will be helpful
+
 ### Management & monitoring
 Management and monitoring is key, we start with implementing VPC flow logs.
 
@@ -82,17 +103,15 @@ Our solution Terraform modules:
 * 20_Flowlogs
 
 ### Billing
-need to work on, any suggestion /guideline /learning shared will be helpful
-### Deployment & agility
-need to work on, any suggestion /guideline /learning shared will be helpful
-# Proposed solution
-All the components have been created individual Terraform Modules. Assuming Tenant category and applying mapping, we can control the resources creation and allocation.
+Billing is a challenge in the Hybrid model, our work around is to make sure use particular tag for the infra created. We should force it with IAM rule "RequestTag" (AWS re:Invent 2018: [REPEAT 1] Become an IAM Policy Master in 60 Minutes or Less (SEC316-R1))
 
-```hcl
-variable "tenantTier" {
-  description = "tenantTier: Tenant1 or Tenant2 or Tenant3 or Tenant4"
-}
-```
+### Deployment & agility
+Whole project is made by breaking the AWS services into modules. Each service have their own corresponding Terraform module, which can be run independently or run at a shot. We can use "terraform.tfvars" for setting up the module to run the required service.
+
+Modules help in:
+* Setting up the infra one by one
+* Help is debugging particular service
+* Will give us full control and tweak
 
 # Deliverables
 
@@ -102,7 +121,7 @@ variable "tenantTier" {
 
 ### Configuration management
 
-Github Link for solution (https://github.com/ManojChandran/mySaaSinAWS.git)
+Github Link for solution (https://github.com/ManojChandran/ECSCluster.git)
 
 # Project Reference
 
@@ -115,3 +134,6 @@ Link 6 : https://aws-quickstart.s3.amazonaws.com/saas-identity-cognito/doc/saas-
 Link 7 : https://www.youtube.com/watch?v=mwQ5lipGTBI&t=781s (Title: AWS re:Invent 2018: [REPEAT 1] Deconstructing SaaS: Deep Dive into Building Multi-Tenant Solutions on AWS (ARC418-R1)</br>
 Link 8 : https://github.com/terraform-community-modules/tf_aws_ecs/blob/master/main.tf</br>
 Link 9 : https://learn.hashicorp.com/terraform/aws/lambda-api-gateway</br>
+Link 10 : http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster</br>
+Link 11 : https://www.gruntwork.io/devops-checklist/</br>
+Link 12 : https://www.youtube.com/watch?v=YQsK4MtsELU&t=1536s</br>

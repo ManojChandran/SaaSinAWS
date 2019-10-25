@@ -62,8 +62,25 @@ module "Flowlogs" {
   source       = "./modules/20_Flowlogs"
   vpc_id       = "${module.vpc_igw.vpc_id}"
 }
+
 # Deploy Security group
 module "SecurityGroup01" {
-  source       = "./modules/31_SecurityGroup1"
+  source       = "./modules/30_SecurityGroup1"
   vpc_id       = "${module.vpc_igw.vpc_id}"
 }
+
+# Deploy a ECS Cluster
+module "ECSCluster" {
+  source       = "./modules/40_ECSCluster"
+  tf_ecs_cluster_name = "${var.vpc_id}-cluster"
+}
+
+## ECS Service role
+#module "ECSServiceRole" {
+#  source       = "./modules/41_ECSServiceRole"
+#}
+#
+## ECS Instance role
+#module "ECSInstanceRole" {
+#  source       = "./modules/42_ECSInstanceRole"
+#}

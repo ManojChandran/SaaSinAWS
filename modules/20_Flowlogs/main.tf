@@ -8,7 +8,7 @@ resource "aws_flow_log" "tf_vpc_flowlogs" {
 }
 
 resource "aws_cloudwatch_log_group" "tf_cloudwatch" {
-  name = "tf_cloudwatch"
+  name = "${var.vpc_id}-tf_cloudwatch"
 }
 
 resource "aws_iam_role" "tf_IAM_flowlogs" {

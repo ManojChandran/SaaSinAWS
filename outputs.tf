@@ -12,9 +12,6 @@ output "Cloudfront distrubution domain Status" {
 output "API gateway ID" {
   value = "${module.Apigateway.tf_api_gateway_id}"
 }
-output "API gateway resource ID" {
-  value = "${module.Apigateway.tf_api_root_resource_id}"
-}
 
 output "VPC ID" {
   value = "${module.vpc_igw.vpc_id}"
@@ -24,4 +21,19 @@ output "VPC IGW" {
 }
 output "VPC Default Routetable" {
   value = "${module.vpc_igw.default_route_table_id}"
+}
+output "VPC Cluster ID" {
+  value = "${module.ECSCluster.ecs_cluster_id}"
+}
+output "Public subnets" {
+  value = ["${module.PublicSubnet.vpc_public_subnets}"]
+}
+output "Private subnets" {
+  value = ["${module.PrivateSubnet.vpc_private_subnets}"]
+}
+output "RDS subnets" {
+  value = ["${module.RDSSubnet.vpc_RDS_subnets}"]
+}
+output "VPC Flowlogs" {
+  value = "${module.Flowlogs.tf_VPC_flowlogs_id}"
 }
