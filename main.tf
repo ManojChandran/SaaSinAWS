@@ -87,4 +87,5 @@ module "ECSCluster" {
 # ECS Service role
 module "ECStesting" {
   source       = "./modules/43_ECStesting"
+  vpc_id       = "${module.vpc_igw.vpc_id}"
 }
