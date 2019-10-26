@@ -17,11 +17,11 @@ resource "aws_subnet" "tf_RDS_subnet" {
 }
 
 # RDS subnet group
-resource "aws_db_subnet_group" "tf_rds_subnetgroup" {
-    name = "tf_rds_subnetgroup"
-
-    subnet_ids = ["${aws_subnet.tf_RDS_subnet.*.id}"]
-    tags = {
-      Name = "tf_RDS_sng"
-    }
-}
+#resource "aws_db_subnet_group" "tf_rds_subnetgroup" {
+#    name = "tf_rds_subnetgroup"
+#
+#    subnet_ids = ["${aws_subnet.tf_RDS_subnet.*.id}"]
+#    tags = {
+#      Name = "tf_RDS_sng"
+#    }
+#}
