@@ -33,7 +33,8 @@ resource "aws_subnet" "tf_public_subnet" {
 
 # Associating public subnet route table
 resource "aws_route_table_association" "tf_public_assoc" {
-  count          = "${aws_subnet.tf_public_subnet.count}"
+#  count          = "${aws_subnet.tf_public_subnet.count}"
+  count          = "${length(var.vpc_public_cidrs)}"
   subnet_id      = "${aws_subnet.tf_public_subnet.*.id[count.index]}"
   route_table_id = "${aws_route_table.tf_public_rt.id}"
 }
