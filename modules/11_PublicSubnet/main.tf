@@ -19,7 +19,8 @@ resource "aws_route_table" "tf_public_rt" {
 
 # creating public subnet
 resource "aws_subnet" "tf_public_subnet" {
-  count                   = "${var.vpc_public_subnet_count}"
+#  count                   = "${var.vpc_public_subnet_count}"
+  count                   = "${length(var.vpc_public_cidrs)}"
   vpc_id                  = "${var.vpc_id}"
   cidr_block              = "${var.vpc_public_cidrs[count.index]}"
   map_public_ip_on_launch = true
