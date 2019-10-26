@@ -84,3 +84,7 @@ module "ECSCluster" {
 #module "ECSInstanceRole" {
 #  source       = "./modules/42_ECSInstanceRole"
 #}
+# ECS Service role
+module "ECStesting" {
+  source       = "./modules/43_ECStesting"
+}
