@@ -1,18 +1,7 @@
 # Overview
-____________________________________
-Error: Invalid resource count attribute
-
-  on modules/12_PrivateSubnet/main.tf line 30, in resource "aws_route_table_association" "tf_public_assoc":
-  30:   count          = "${aws_subnet.tf_private_subnet.count}"
-
-The special "count" attribute is no longer supported after Terraform v0.12.
-Instead, use length(aws_subnet.tf_private_subnet) to count resource instances.
-
-need to fix this
-________________________________
 Every other day a new start-up is in market with a software service,  Most of these offer Software as a Service. Industry has changed much after cloud and Enterprise started relying on these SAAS providers more. This git repository is provide a base design to implement a multi-tenant SAAS infrastructure in AWS cloud. We will be implementing it as infrastructure as code, using Terraform.
 
-* Terraform vesrion : 0.11.13
+* Terraform vesrion : 0.12.0
 
 > This is a rough outline of solution, we are going to follow AWS proposed Mutli-tenant solutions.I will be adding more resources and it will be a continuous improvements towards a good solution.
 
