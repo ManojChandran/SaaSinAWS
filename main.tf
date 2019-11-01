@@ -75,11 +75,11 @@ module "ECSCluster" {
   tf_ecs_cluster_name = "${var.vpc_id}-cluster"
 }
 
-## ECS Service role
-#module "ECSServiceRole" {
-#  source       = "./modules/41_ECSServiceRole"
-#}
-#
+# ECS Service role
+module "ECSServiceRole" {
+  source       = "./modules/41_ECSServiceRole"
+}
+
 ## ECS Instance role
 #module "ECSInstanceRole" {
 #  source       = "./modules/42_ECSInstanceRole"
