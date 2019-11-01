@@ -84,8 +84,10 @@ module "ECSCluster" {
 #module "ECSInstanceRole" {
 #  source       = "./modules/42_ECSInstanceRole"
 #}
+
 # ECS Service role
-module "ECStesting" {
-  source       = "./modules/43_ECStesting"
+module "APPlloadbalancer" {
+  source       = "./modules/43_ECSALBalancer"
   vpc_id       = "${module.vpc_igw.vpc_id}"
+  private_subnets_alb      = "${module.PrivateSubnet.vpc_private_subnets}"
 }

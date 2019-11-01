@@ -45,3 +45,4 @@ variable "flowlogs_bucket_name" {
 variable "tf_ecs_cluster_name" {
   default = ""
 }
+variable "private_subnets_alb" {}
