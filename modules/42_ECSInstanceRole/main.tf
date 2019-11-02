@@ -3,7 +3,7 @@
 resource "aws_iam_role" "tf_ecs_instance_role" {
     name                = "tf_ecs_instance_role"
     path                = "/"
-    assume_role_policy  = "${data.aws_iam_policy_document.tf_ecs-instance-policy.json}"
+    assume_role_policy  = "${data.aws_iam_policy_document.tf_ecs_instance_policy.json}"
 }
 
 data "aws_iam_policy_document" "tf_ecs_instance_policy" {

@@ -80,10 +80,10 @@ module "ECSServiceRole" {
   source       = "./modules/41_ECSServiceRole"
 }
 
-## ECS Instance role
-#module "ECSInstanceRole" {
-#  source       = "./modules/42_ECSInstanceRole"
-#}
+# ECS Instance role
+module "ECSInstanceRole" {
+  source       = "./modules/42_ECSInstanceRole"
+}
 
 # ECS Service role
 module "APPlloadbalancer" {
