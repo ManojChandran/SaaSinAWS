@@ -3,6 +3,7 @@
 resource "aws_s3_bucket" "tf_s3_host_bucket" {
   bucket = "${var.website_bucket_name}"
   acl = "public-read"
+  force_destroy = true
 
   tags = {
     Name = "tf_s3hosting_bucket"
